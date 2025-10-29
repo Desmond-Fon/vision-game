@@ -33,8 +33,8 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({
           <Link
             key={item.path}
             to={item.path}
-            className={`flex flex-col items-center text-slate-400 transition-all duration-300 p-2 rounded-lg hover:text-cyan-400 hover:-translate-y-0.5 ${
-              isActive ? "text-cyan-400 bg-cyan-400/10" : ""
+            className={`flex flex-col items-center transition-all duration-300 p-2 rounded-lg hover:text-cyan-400 hover:-translate-y-0.5 ${
+              isActive ? "text-[#00C2FF]" : "text-slate-400"
             }`}
           >
             <img
@@ -44,7 +44,7 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({
                 isActive ? "brightness-125" : "brightness-80"
               }`}
             />
-            <span className="text-xs sm:text-2xl text-white font-medium tracking-wider">
+            <span className="text-xs sm:text-2xl font-medium tracking-wider">
               {item.label}
             </span>
           </Link>

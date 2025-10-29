@@ -1,5 +1,29 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "A4 Speed";
+  src: url("./assets/a4_speed/A4SPEED-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Robot Crush";
+  src: url("./assets/robot_crush/Robot Crush.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* 
+@font-face {
+  font-family: "Robot Crush";
+  src: url("./assets/robot_crush/Robot Crush Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+} */
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -15,3 +39,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.a4-speed {
+  font-family: "A4 Speed", sans-serif;
+}
+
+.robot-crush {
+  font-family: "Robot Crush", sans-serif;
+  text-decoration: none;
+  text-decoration-line: none;
+  -webkit-text-decoration: none;
+}
+
+/* Remove horizontal strokes from Robot Crush font */
+.robot-crush,
+.font-robot-crush,
+[class*="font-robot-crush"] {
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+  -webkit-text-decoration: none !important;
+  /* Try to minimize horizontal stroke visibility */
+  text-shadow: 0 0 0 transparent;
+}
