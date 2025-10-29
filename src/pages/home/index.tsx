@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ResponsiveLayout from "../../components/ResponsiveLayout";
+import OnboardingModal from "../../components/OnboardingModal";
 import coinIcon from "../../assets/coin.svg";
 import emeraldIcon from "../../assets/emerald.svg";
 import starIcon from "../../assets/star.svg";
@@ -7,8 +8,27 @@ import quest from "../../assets/quest.png";
 import icon from "../../assets/icon.png";
 
 const Home: React.FC = () => {
+  const [showOnboarding, setShowOnboarding] = useState(false);
+
+  useEffect(() => {
+    // Check if user has seen onboarding before
+    const hasSeenOnboarding = localStorage.getItem("hasSeenOnboarding");
+    if (!hasSeenOnboarding) {
+      setShowOnboarding(true);
+    }
+  }, []);
+
+  const handleCloseOnboarding = () => {
+    setShowOnboarding(false);
+    localStorage.setItem("hasSeenOnboarding", "true");
+  };
+
   return (
     <ResponsiveLayout>
+      <OnboardingModal
+        isOpen={showOnboarding}
+        onClose={handleCloseOnboarding}
+      />
       <div className="h-screen w-full">
         {/* Desktop Layout */}
         <div className="hidden py-[100px] md:grid md:grid-cols-[350px_1fr] md:gap-6 md:h-full md:w-full md:px-6">
